@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TableFlow 2.0 — Next-Gen Restaurant Reservation &amp; Floor Management</title>
+  <meta name="description" content="Experience TableFlow Home 2: Interactive booking widget, live dining floor simulator, and revenue calculator for modern restaurant hospitality." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════ NAVBAR ═══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="nav-logo-link">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <span>TableFlow</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-dropdown-wrap">
+          <a href="index.html" id="nav-home" class="nav-active">
+            Home
+            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="nav-dropdown-item">
+              <div class="dd-title">Home 1 — Classic</div>
+              <div class="dd-desc">Platform overview &amp; feature deep-dive</div>
+            </a>
+            <a href="home2.html" class="nav-dropdown-item">
+              <div class="dd-title">Home 2 — Interactive <span class="badge-pill-teal">Active</span></div>
+              <div class="dd-desc">Live booking widget &amp; floor simulator</div>
+            </a>
+          </div>
+        </li>
+        <li><a href="about.html" id="nav-about">About</a></li>
+        <li><a href="services.html" id="nav-services">Services</a></li>
+        <li><a href="features.html" id="nav-features">Features</a></li>
+        <li><a href="pricing.html" id="nav-pricing">Pricing</a></li>
+        <li><a href="blog.html" id="nav-blog">Blog</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="signin.html" class="btn btn-ghost" id="nav-login">Sign In</a>
+        <a href="signup.html" class="btn btn-primary btn-sm" id="nav-demo">Request Demo</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════ HERO 2 — INTERACTIVE CONVERSION ═══════════════════════════════════════ -->
+  <section class="hero2" id="hero2">
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="container">
+      <div class="hero2-grid">
+
+        <!-- Left: Copy & Live Booking Widget -->
+        <div class="reveal-left">
+          <div class="hero-badge" style="margin-bottom:12px;">
+            <span class="badge-dot"></span>
+            <span>TableFlow 2.0 Operating System · Zero Cover Fees</span>
+          </div>
+
+          <h1 class="hero2-title">
+            Fill Every Table.<br/>
+            Turn Seats Faster.<br/>
+            <span class="gradient-text">Delight Every Guest.</span>
+          </h1>
+
+          <p class="hero2-subtext">
+            The next-generation reservation platform built for restaurants that refuse to pay $1–$3 per cover fees. Intelligent floor planning, automated SMS waitlists, and rich guest CRM.
+          </p>
+
+          <!-- Interactive Booking Widget -->
+          <div class="booking-widget-card" id="interactive-widget">
+            <div class="widget-header">
+              <div class="widget-header-title">
+                <span class="widget-live-dot"></span>
+                <span>Live Table Booking Preview</span>
+              </div>
+              <span style="font-size:11px;color:#94a3b8;">Instant Confirmation</span>
+            </div>
+
+            <!-- Party Size -->
+            <label class="widget-section-label">Party Size</label>
+            <div class="chips-row">
+              <button class="chip-btn party-btn" data-party="1 Guest">1 Guest</button>
+              <button class="chip-btn party-btn active" data-party="2 Guests">2 Guests</button>
+              <button class="chip-btn party-btn" data-party="4 Guests">4 Guests</button>
+              <button class="chip-btn party-btn" data-party="6 Guests">6 Guests</button>
+              <button class="chip-btn party-btn" data-party="8+ Guests">8+ VIP</button>
+            </div>
+
+            <!-- Time Slots -->
+            <label class="widget-section-label">Time Slots (Tonight)</label>
+            <div class="chips-row">
+              <button class="chip-btn slot-btn" data-time="6:00 PM">6:00 PM</button>
+              <button class="chip-btn slot-btn" data-time="6:45 PM">6:45 PM</button>
+              <button class="chip-btn slot-btn active" data-time="7:30 PM">7:30 PM</button>
+              <button class="chip-btn slot-btn" data-time="8:15 PM">8:15 PM</button>
+              <button class="chip-btn slot-btn" data-time="9:00 PM">9:00 PM</button>
+            </div>
+
+            <!-- Seating Zone -->
+            <label class="widget-section-label">Preferred Atmosphere</label>
+            <div class="chips-row">
+              <button class="chip-btn area-btn active" data-area="Main Dining">Main Dining</button>
+              <button class="chip-btn area-btn" data-area="Heated Patio">Heated Patio</button>
+              <button class="chip-btn area-btn" data-area="Chef's Counter">Chef's Counter</button>
+            </div>
+
+            <!-- Live Summary Box -->
+            <div class="booking-summary-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span id="booking-summary-text">2 Guests · Tonight at 7:30 PM · Main Dining</span>
+            </div>
+
+            <button class="btn btn-primary btn-lg full-w" id="hero-book-btn">
+              <span>Simulate Instant Reservation</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="hero2-badges">
+            <div class="hero2-badge-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Zero Per-Cover Charges</span>
+            </div>
+            <div class="hero2-badge-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>100% Guest Data Ownership</span>
+            </div>
+            <div class="hero2-badge-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Toast, Square &amp; Clover Sync</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Cinema Quality Photo Frame with Live Floating Badges -->
+        <div class="reveal-right">
+          <div class="hero2-visual-wrapper">
+            <div class="hero2-img-frame">
+              <img src="home2_hero_restaurant.jpg" alt="TableFlow host stand system in luxury restaurant" />
+            </div>
+
+            <!-- Floating Glass Card 1 -->
+            <div class="glass-floating-card glass-fc-top-right">
+              <div class="glass-fc-icon glass-fc-icon-teal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div>
+                <div class="glass-fc-title">VIP Seated: Table 14</div>
+                <div class="glass-fc-sub">Sophia M. · 12th Visit (Anniversary)</div>
+              </div>
+            </div>
+
+            <!-- Floating Glass Card 2 -->
+            <div class="glass-floating-card glass-fc-bottom-left">
+              <div class="glass-fc-icon glass-fc-icon-amber">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div>
+                <div class="glass-fc-title">Turn Speed: 42 min avg</div>
+                <div class="glass-fc-sub">+34% Table Turnover Lift Tonight</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SECTION 2 — LIVE FLOOR PLAN SIMULATOR ═══════════════════════════════════════ -->
+  <section class="content-section" id="floor-simulator">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-eyebrow">Interactive Live Simulator</div>
+        <h2 class="section-heading">Command Your Floor with <span class="gradient-text">Sub-Second Precision</span></h2>
+        <p class="section-subtext" style="max-width:700px;margin:0 auto 40px;">
+          Click any table below to see live dining progress, guest notes, course timers, and quick host actions. Switch dining rooms in real time.
+        </p>
+      </div>
+
+      <div class="floor-sim-container reveal">
+        <!-- Floor Canvas Column -->
+        <div>
+          <!-- Zone Switcher -->
+          <div class="zone-tabs-row">
+            <button class="zone-tab active" data-zone="main">Main Dining Room (8 Tables)</button>
+            <button class="zone-tab" data-zone="patio">Outdoor Heated Patio (4 Tables)</button>
+            <button class="zone-tab" data-zone="lounge">Cocktail &amp; VIP Lounge (3 Tables)</button>
+          </div>
+
+          <!-- Floor Canvas Grid -->
+          <div class="floor-grid-canvas" id="interactive-floor-grid">
+            <!-- Injected by home2.js -->
+          </div>
+
+          <!-- Status Legend -->
+          <div class="floor-legend">
+            <div class="legend-item"><span class="legend-dot" style="background:#10b981;"></span> Available (Click to seat)</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span> Reserved (Upcoming)</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#06b6d4;"></span> Occupied (In service)</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#a855f7;"></span> VIP Reserved</div>
+          </div>
+        </div>
+
+        <!-- Table Detail Inspector Card -->
+        <div class="table-detail-card" id="table-detail-card">
+          <!-- Injected dynamically by home2.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SECTION 3 — INTERACTIVE ROI CALCULATOR ═══════════════════════════════════════ -->
+  <section class="content-section content-section-alt" id="roi-calculator">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-eyebrow">Financial Impact Calculator</div>
+        <h2 class="section-heading">How Much Money Are You Leaving on the Table?</h2>
+        <p class="section-subtext" style="max-width:680px;margin:0 auto 40px;">
+          Adjust your restaurant's profile below. See the annual revenue you unlock through table turn optimization and zero third-party cover fees.
+        </p>
+      </div>
+
+      <div class="calculator-card reveal">
+        <!-- Sliders Left -->
+        <div>
+          <!-- Tables Slider -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Total Restaurant Tables:</span>
+              <span class="slider-val-badge" id="val-tables">30</span>
+            </div>
+            <input type="range" min="10" max="120" value="30" step="5" class="range-slider" id="calc-tables" />
+          </div>
+
+          <!-- Spend Slider -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Average Spend Per Diner:</span>
+              <span class="slider-val-badge" id="val-spend">$65</span>
+            </div>
+            <input type="range" min="20" max="250" value="65" step="5" class="range-slider" id="calc-spend" />
+          </div>
+
+          <!-- Turns Slider -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Target Turns Per Evening:</span>
+              <span class="slider-val-badge" id="val-turns">2.0x</span>
+            </div>
+            <input type="range" min="1.0" max="3.5" value="2.0" step="0.1" class="range-slider" id="calc-turns" />
+          </div>
+
+          <div style="font-size:12px;color:#94a3b8;margin-top:20px;line-height:1.6;">
+            * Based on TableFlow's benchmark data across 2,400+ restaurants reducing turn times by 12–18% and zero per-cover fee savings.
+          </div>
+        </div>
+
+        <!-- KPI Results Right -->
+        <div class="calc-results-box">
+          <div class="calc-result-kpi">
+            <div class="calc-result-num" id="res-extra-monthly">+$15,210</div>
+            <div class="calc-result-sub">Extra Monthly Revenue Unlocked</div>
+          </div>
+
+          <div class="calc-result-kpi">
+            <div class="calc-result-num" style="color:#10b981;font-size:clamp(1.6rem,2.8vw,2.2rem);" id="res-fee-saved">$8,640/mo</div>
+            <div class="calc-result-sub">Legacy Per-Cover Booking Fees Saved</div>
+          </div>
+
+          <div class="calc-result-kpi" style="margin-bottom:0;">
+            <div class="calc-result-num" style="color:#06b6d4;font-size:clamp(1.4rem,2.2vw,1.8rem);" id="res-turns-lift">+36% turns</div>
+            <div class="calc-result-sub">Table Turnover Velocity Acceleration</div>
+          </div>
+
+          <a href="signup.html" class="btn btn-primary btn-md full-w" style="margin-top:24px;">
+            Claim Your Free 14-Day Trial
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SECTION 4 — BENTO GRID SHOWCASE ═══════════════════════════════════════ -->
+  <section class="content-section" id="bento-features">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-eyebrow">Hospitality Tech Suite</div>
+        <h2 class="section-heading">Built to Solve Real Floor Problems</h2>
+        <p class="section-subtext" style="max-width:680px;margin:0 auto 48px;">
+          Engineered by restaurant veterans and software architects to make services smoother and shifts less chaotic.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Card 1 (Wide) -->
+        <div class="bento-card bento-col-2 reveal-left">
+          <div class="bento-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <h3 class="bento-title">Smart Table Balancing Algorithm</h3>
+          <p class="bento-desc">
+            Never seat a 2-top at your prime 6-person booth again. TableFlow's dynamic assignment engine optimizes party sizes to seating capacities automatically, saving up to 4 empty chairs per service.
+          </p>
+          <div style="margin-top:20px;display:flex;gap:12px;font-size:12px;color:var(--clr-primary);font-weight:700;">
+            <span>✓ Auto-Split &amp; Merge</span>
+            <span>✓ VIP Booth Prioritization</span>
+            <span>✓ ADA Accessible Routing</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bento-card reveal-right">
+          <div class="bento-icon-wrap" style="color:#f59e0b;background:rgba(245,158,11,0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          </div>
+          <h3 class="bento-title">Automated Two-Way SMS</h3>
+          <p class="bento-desc">
+            Guests receive real-time confirmations and can text back "RUNNING 10" or "CANCEL". The waitlist auto-fills the opening immediately.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bento-card reveal-left">
+          <div class="bento-icon-wrap" style="color:#06b6d4;background:rgba(6,182,212,0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="bento-title">Zero-Fee Direct Widget</h3>
+          <p class="bento-desc">
+            Embed an unbranded or fully custom booking widget on your website, Instagram bio, and Google Reserve. Keep 100% of diner spend.
+          </p>
+        </div>
+
+        <!-- Card 4 (Wide) -->
+        <div class="bento-card bento-col-2 reveal-right">
+          <div class="bento-icon-wrap" style="color:#a855f7;background:rgba(168,85,247,0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="bento-title">Allergen &amp; VIP Intelligence CRM</h3>
+          <p class="bento-desc">
+            Staff know before greeting: severe shellfish allergy, favorite vintage wine, anniversary celebration, or Michelin inspector alert. Delight regulars effortlessly.
+          </p>
+          <div style="margin-top:20px;display:flex;gap:12px;font-size:12px;color:#a855f7;font-weight:700;">
+            <span>✓ Server Kitchen Sync</span>
+            <span>✓ Automatic Lifetime Spend Tagging</span>
+            <span>✓ Custom Tagging Filters</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SECTION 5 — TABLEFLOW VS LEGACY ═══════════════════════════════════════ -->
+  <section class="content-section content-section-alt" id="comparison">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-eyebrow">Honest Comparison</div>
+        <h2 class="section-heading">Why Top Restaurants Switch from Legacy Software</h2>
+        <p class="section-subtext" style="max-width:680px;margin:0 auto 40px;">
+          Stop paying per-cover tax on your own loyal diners. See how TableFlow compares side by side.
+        </p>
+      </div>
+
+      <div class="comp-table-wrap reveal">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="col-highlight">TableFlow 2.0</th>
+              <th>Legacy Portals (e.g. OpenTable)</th>
+              <th>Generic Spreadsheets</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Per-Cover Charges</td>
+              <td class="col-highlight" style="color:#10b981;">$0.00 / Always Free</td>
+              <td style="color:#ef4444;">$1.00 – $3.50 per seat</td>
+              <td>$0.00</td>
+            </tr>
+            <tr>
+              <td>Guest Contact &amp; Email Data</td>
+              <td class="col-highlight">100% Owned by You</td>
+              <td>Masked &amp; Owned by Portal</td>
+              <td>Manual Entry Only</td>
+            </tr>
+            <tr>
+              <td>Two-Way POS Integration</td>
+              <td class="col-highlight">Real-Time (Toast, Square, Clover)</td>
+              <td>Expensive Add-On</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Interactive Digital Floor Plan</td>
+              <td class="col-highlight">Included Unlimited</td>
+              <td>High Tier Only</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Two-Way SMS Waitlist Notifications</td>
+              <td class="col-highlight">Included on All Plans</td>
+              <td>Per-SMS Charge</td>
+              <td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SECTION 6 — ACCORDION FAQ ═══════════════════════════════════════ -->
+  <section class="content-section" id="faq2">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header centered reveal">
+        <div class="section-eyebrow">Frequently Asked Questions</div>
+        <h2 class="section-heading">Got Questions? We Have Answers.</h2>
+      </div>
+
+      <div class="faq-accordion reveal">
+        <div class="faq-item faq-item-h2">
+          <div class="faq-question faq-question-h2">
+            <span>Can I import our existing reservations and guest database?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            Yes! TableFlow includes 1-click import tools for OpenTable, Resy, SevenRooms, and standard CSV files. Our white-glove onboarding team can also migrate your entire database in under 2 hours without downtime.
+          </div>
+        </div>
+
+        <div class="faq-item faq-item-h2">
+          <div class="faq-question faq-question-h2">
+            <span>What hardware or tablets do we need?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            TableFlow runs in any modern browser on iPads, Android tablets, Touchscreen POS terminals, laptops, or iPhones. No proprietary hardware leases required.
+          </div>
+        </div>
+
+        <div class="faq-item faq-item-h2">
+          <div class="faq-question faq-question-h2">
+            <span>How fast can our hosts and front-of-house staff learn it?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            Most hosts learn TableFlow in under 15 minutes. The interface is intuitive, tactile, and designed specifically for hectic dinner rushes where every second counts.
+          </div>
+        </div>
+
+        <div class="faq-item faq-item-h2">
+          <div class="faq-question faq-question-h2">
+            <span>Are there any hidden setup or cancellation fees?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-answer">
+            Zero setup fees. Zero cancellation penalties. All plans come with a 14-day free trial, and you can cancel or switch tiers anytime directly from your dashboard.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SECTION 7 — FINAL CONVERSION CTA ═══════════════════════════════════════ -->
+  <section class="cta-section" id="demo">
+    <div class="cta-bg">
+      <img src="cta_restaurant_interior.jpg" alt="Dining room experience" class="cta-bg-img" />
+      <div class="cta-overlay"></div>
+    </div>
+    <div class="container cta-container">
+      <div class="cta-inner reveal">
+        <div class="section-eyebrow section-eyebrow-light cta-eyebrow">Ready for Better Hospitality?</div>
+        <h2 class="cta-heading">Stop Paying Cover Fees. <span class="gradient-text-warm">Take Command Today.</span></h2>
+        <p class="cta-subtext">
+          Join 2,400+ Michelin-starred, independent, and high-volume dining groups already running on TableFlow. Setup takes 30 minutes.
+        </p>
+        <div class="cta-buttons">
+          <a href="signup.html" class="btn btn-white btn-lg" id="cta-demo-btn">
+            Start Free 14-Day Trial
+          </a>
+          <a href="pricing.html" class="btn btn-outline-white btn-lg">
+            View All Plans &amp; Pricing
+          </a>
+        </div>
+        <div class="cta-trust-row">
+          <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> No credit card required</span>
+          <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 1-click POS integration</span>
+          <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Free white-glove migration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ MODAL BOOKING CONFIRMATION ═══════════════════════════════════════ -->
+  <div class="booking-modal-overlay" id="booking-modal">
+    <div class="booking-modal-box">
+      <div class="modal-check-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;">Reservation Simulated!</h3>
+      <p style="font-size:14px;color:#94a3b8;margin-bottom:20px;">In real production, the guest gets an instant SMS &amp; email with their booking pass.</p>
+
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:left;font-size:13px;margin-bottom:24px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="color:#94a3b8;">Party:</span><strong id="modal-party" style="color:#fff;">2 Guests</strong></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="color:#94a3b8;">Time:</span><strong id="modal-time" style="color:#14b8a6;">7:30 PM Tonight</strong></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="color:#94a3b8;">Area:</span><strong id="modal-area" style="color:#fff;">Main Dining</strong></div>
+        <div style="display:flex;justify-content:space-between;"><span style="color:#94a3b8;">Assigned Table:</span><strong id="modal-table" style="color:#f59e0b;">Table #7</strong></div>
+      </div>
+
+      <button class="btn btn-primary btn-md full-w" id="modal-close-btn">
+        Close Demo
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo footer-logo" id="footer-logo">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <span>TableFlow</span>
+        </a>
+        <p class="footer-tagline">The complete restaurant reservation and table management platform for modern hospitality.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html">Home 1 (Classic)</a></li>
+          <li><a href="home2.html">Home 2 (Interactive)</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog &amp; Insights</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="about.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="signin.html">Sign In</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="pricing.html">View Pricing</a></li>
+          <li><a href="#demo">Request Demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>&copy; 2026 TableFlow Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="home2.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — TableFlow Restaurant Management</title>
+  <meta name="description" content="Simple, transparent pricing for restaurants of all sizes. Start free for 14 days, no credit card required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-grid"></div>
+    <div class="container page-hero-content reveal">
+      <div class="section-eyebrow">Transparent Pricing</div>
+      <h1>Simple Plans for Every <span class="gradient-text">Restaurant</span></h1>
+      <p>Start for free. Scale as you grow. No hidden fees, no long-term contracts.</p>
+      <!-- Toggle -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;">
+        <span id="toggle-monthly" style="font-size:14px;font-weight:600;color:#f1f5f9;">Monthly</span>
+        <button id="billing-toggle" onclick="toggleBilling()" aria-label="Toggle billing" style="width:48px;height:26px;border-radius:50px;background:var(--grad-primary);border:none;cursor:pointer;position:relative;transition:all .3s;">
+          <div id="toggle-knob" style="width:20px;height:20px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:transform .3s;"></div>
+        </button>
+        <span id="toggle-annual" style="font-size:14px;font-weight:600;color:#94a3b8;">Annual <span style="color:var(--clr-primary);font-size:11px;background:rgba(20,184,166,0.1);padding:2px 8px;border-radius:50px;margin-left:4px;">Save 20%</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <section class="content-section" style="padding-top:0;">
+    <div class="container">
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="pricing-card reveal stagger-1">
+          <div class="pricing-plan-name">Starter</div>
+          <div class="pricing-plan-desc">Perfect for single-location cafes and small restaurants just getting started.</div>
+          <div class="pricing-price">
+            <span class="price-currency">$</span>
+            <span class="price-amount" id="price-starter">49</span>
+            <span class="price-period">/mo</span>
+          </div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Up to 50 reservations/month</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Floor plan (up to 20 tables)</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Email confirmations</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Basic guest profiles</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Waitlist management</li>
+            <li class="pricing-feature-item disabled"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>SMS reminders</li>
+            <li class="pricing-feature-item disabled"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Analytics dashboard</li>
+            <li class="pricing-feature-item disabled"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Multi-location</li>
+          </ul>
+          <a href="signup.html" class="btn btn-outline btn-full">Start Free Trial</a>
+        </div>
+
+        <!-- Pro (Featured) -->
+        <div class="pricing-card featured reveal stagger-2">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-plan-name">Pro</div>
+          <div class="pricing-plan-desc">For growing restaurants ready to optimize every table and every guest interaction.</div>
+          <div class="pricing-price">
+            <span class="price-currency">$</span>
+            <span class="price-amount" id="price-pro">129</span>
+            <span class="price-period">/mo</span>
+          </div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Unlimited reservations</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Unlimited floor plan tables</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>SMS &amp; email confirmations</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Full guest profiles &amp; preferences</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Waitlist automation</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Analytics dashboard</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>No-show tracking &amp; deposits</li>
+            <li class="pricing-feature-item disabled"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Multi-location</li>
+          </ul>
+          <a href="signup.html" class="btn btn-primary btn-full">Start Free Trial</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card reveal stagger-3">
+          <div class="pricing-plan-name">Enterprise</div>
+          <div class="pricing-plan-desc">For restaurant groups and multi-location operations that need full control at scale.</div>
+          <div class="pricing-price">
+            <span class="price-currency">$</span>
+            <span class="price-amount" id="price-enterprise">299</span>
+            <span class="price-period">/mo</span>
+          </div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Pro</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Up to 10 locations</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Centralized reporting</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Custom branding &amp; booking page</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dedicated account manager</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Priority 24/7 support</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>API access &amp; integrations</li>
+            <li class="pricing-feature-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>SSO &amp; advanced permissions</li>
+          </ul>
+          <a href="index.html#demo" class="btn btn-outline btn-full">Request a Demo</a>
+        </div>
+      </div>
+
+      <!-- Compare note -->
+      <p style="text-align:center;margin-top:32px;font-size:14px;color:#64748b;">All plans include a 14-day free trial. No credit card required. Cancel anytime.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="content-section content-section-alt" id="pricing-faq">
+    <div class="container">
+      <div class="section-header centered reveal" style="margin-bottom:48px;">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 class="section-heading">Frequently Asked <span class="gradient-text">Questions</span></h2>
+      </div>
+      <div class="faq-list" id="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I change my plan later?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">Yes. You can upgrade or downgrade your plan at any time from your account settings. Changes take effect immediately with prorated billing.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What happens after my free trial ends?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">After 14 days, your account will switch to the plan you selected. We'll send you a reminder before your trial ends. If you don't add a payment method, your account moves to a read-only state — no data is lost.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you offer discounts for annual billing?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">Yes — annual billing saves you 20% compared to month-to-month. Toggle the billing switch above to see annual prices.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I manage multiple restaurant locations?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">Multi-location management is available on the Enterprise plan. You can manage up to 10 locations from a single dashboard with centralized reporting and guest data.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is there a setup fee?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">No setup fees, ever. You can have your floor plan built and accepting reservations in under 30 minutes — for free.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="cta-section" style="min-height:400px;" id="pricing-cta">
+    <div class="cta-bg">
+      <img src="cta_restaurant_interior.jpg" alt="Premium restaurant" class="cta-bg-img" />
+      <div class="cta-overlay"></div>
+    </div>
+    <div class="container cta-container">
+      <div class="cta-inner">
+        <h2 class="cta-heading" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Start Your <span class="gradient-text-warm">Free 14-Day Trial</span> Today</h2>
+        <p class="cta-subtext">No credit card. No commitment. Just smarter restaurant management from day one.</p>
+        <div class="cta-buttons">
+          <a href="signup.html" class="btn btn-white btn-lg">Get Started Free</a>
+          <a href="index.html#demo" class="btn btn-outline-white btn-lg">Request a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Billing toggle
+    const prices = { starter: [49, 39], pro: [129, 99], enterprise: [299, 239] };
+    let annual = false;
+
+    function toggleBilling() {
+      annual = !annual;
+      document.getElementById('toggle-knob').style.transform = annual ? 'translateX(22px)' : 'translateX(0)';
+      document.getElementById('toggle-monthly').style.color = annual ? '#94a3b8' : '#f1f5f9';
+      document.getElementById('toggle-annual').style.color  = annual ? '#f1f5f9' : '#94a3b8';
+      document.getElementById('price-starter').textContent    = annual ? prices.starter[1] : prices.starter[0];
+      document.getElementById('price-pro').textContent        = annual ? prices.pro[1] : prices.pro[0];
+      document.getElementById('price-enterprise').textContent = annual ? prices.enterprise[1] : prices.enterprise[0];
+    }
+
+    // FAQ
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    }
+  </script>
+  <script src="components.js"></script>
+</body>
+</html>
