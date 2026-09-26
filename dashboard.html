@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Operations Dashboard — TableFlow</title>
+  <meta name="description" content="TableFlow Live Restaurant Operations Dashboard: Real-time floor occupancy, active table turns, reservation status, waitlist queue, and server assignments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#14b8a6" />
+</head>
+<body style="background:var(--clr-bg);">
+
+  <div class="app-dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="dash-logo">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,#14b8a6,#0891b2);border-radius:9px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(20,184,166,0.3);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          TableFlow
+        </a>
+      </div>
+
+      <nav class="dash-sidebar-nav">
+        <div class="dash-nav-section-title">Operations</div>
+        <a href="#" class="dash-nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Floor &amp; Tables
+          <span class="dash-nav-badge">Live</span>
+        </a>
+        <a href="#" class="dash-nav-item" onclick="alert('Reservations schedule: 42 bookings tonight');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Bookings
+        </a>
+        <a href="#" class="dash-nav-item" onclick="alert('Waitlist: 5 parties in queue (~18 min wait)');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Waitlist
+        </a>
+        <a href="#" class="dash-nav-item" onclick="alert('Guest Directory: 1,480 profiles synced');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          Guest CRM
+        </a>
+
+        <div class="dash-nav-section-title" style="margin-top:10px;">Analytics &amp; Sales</div>
+        <a href="#" class="dash-nav-item" onclick="alert('Live POS Rev: $6,420 tonight across 24 tables');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Sales &amp; POS
+        </a>
+        <a href="#" class="dash-nav-item" onclick="alert('Staff Shift: 6 active servers on duty');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          Staff &amp; Shifts
+        </a>
+
+        <div class="dash-nav-section-title" style="margin-top:10px;">Configuration</div>
+        <a href="#" class="dash-nav-item" onclick="alert('Floor layout builder & venue editor');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+
+      <!-- SIDEBAR FOOTER & USER PROFILE WITH LOGOUT -->
+      <div class="dash-sidebar-footer">
+        <div class="dash-user-profile">
+          <div class="dash-avatar">MR</div>
+          <div class="dash-user-meta">
+            <div class="dash-user-name">Marcus Rivera</div>
+            <div class="dash-user-role">General Manager</div>
+          </div>
+        </div>
+        <a href="index.html" class="dash-logout-btn" title="Sign out of TableFlow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="dash-main">
+
+      <!-- TOPBAR -->
+      <header class="dash-topbar">
+        <div class="dash-topbar-left">
+          <button id="dash-sidebar-toggle" class="btn btn-outline btn-sm" style="display:none;padding:8px 12px;" aria-label="Toggle menu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <div class="dash-topbar-title">Dinner Service Command Center</div>
+            <div style="font-size:12px;color:var(--clr-text-muted);">Bistro Luna &middot; Main Dining &middot; Friday Night Peak</div>
+          </div>
+        </div>
+
+        <div class="dash-topbar-right">
+          <button id="theme-toggle" class="btn" aria-label="Toggle Theme" title="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+          <button id="rtl-toggle" class="btn" aria-label="Toggle RTL direction" title="Toggle RTL">
+            RTL
+          </button>
+          <a href="index.html" class="btn btn-outline btn-sm" style="font-size:12px;padding:6px 14px;">View Public Site</a>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <main class="dash-content-body">
+
+        <!-- TOP METRIC KPI BAR -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px;" id="dashboard-kpi-grid">
+          <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(16,185,129,0.15);color:#10b981;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🪑</div>
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Occupancy</div>
+              <div style="font-size:22px;font-weight:900;color:var(--clr-text);font-family:'Plus Jakarta Sans',sans-serif;" id="kpi-occ">84% <span style="font-size:12px;font-weight:600;color:#10b981;">(21/25)</span></div>
+            </div>
+          </div>
+
+          <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(20,184,166,0.15);color:var(--clr-primary);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">👥</div>
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Seated Guests</div>
+              <div style="font-size:22px;font-weight:900;color:var(--clr-text);font-family:'Plus Jakarta Sans',sans-serif;" id="kpi-guests">76 <span style="font-size:12px;font-weight:600;color:var(--clr-primary);">Seated</span></div>
+            </div>
+          </div>
+
+          <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(245,158,11,0.15);color:#f59e0b;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">⏳</div>
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Waitlist Queue</div>
+              <div style="font-size:22px;font-weight:900;color:var(--clr-text);font-family:'Plus Jakarta Sans',sans-serif;" id="kpi-wait">5 Parties <span style="font-size:12px;font-weight:600;color:#f59e0b;">(~18m)</span></div>
+            </div>
+          </div>
+
+          <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(168,85,247,0.15);color:#a855f7;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">💰</div>
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">POS Cover Rev</div>
+              <div style="font-size:22px;font-weight:900;color:var(--clr-text);font-family:'Plus Jakarta Sans',sans-serif;" id="kpi-rev">$6,420 <span style="font-size:12px;font-weight:600;color:#10b981;">+14%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN INTERACTIVE WORKSPACE (FLOOR PLAN + RIGHT PANEL) -->
+        <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:start;" id="dashboard-workspace">
+
+          <!-- LEFT: Floor Plan Simulator & Table Matrix -->
+          <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-xl);padding:28px;box-shadow:0 18px 48px rgba(0,0,0,0.35);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <h3 style="font-size:17px;font-weight:800;color:var(--clr-text);">Floor Matrix Overview</h3>
+                <span style="font-size:11px;font-weight:700;color:var(--clr-primary);background:rgba(20,184,166,0.15);padding:2px 8px;border-radius:50px;">Live Sync</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <button onclick="setFloorZone('main')" class="zone-tab active" id="ztab-main">Main Dining</button>
+                <button onclick="setFloorZone('patio')" class="zone-tab" id="ztab-patio">Patio &amp; Garden</button>
+                <button onclick="setFloorZone('bar')" class="zone-tab" id="ztab-bar">Bar &amp; Lounge</button>
+              </div>
+            </div>
+
+            <!-- Floor Matrix Grid -->
+            <div id="dashboard-floor-grid" style="background:rgba(7,9,15,0.7);border:1px dashed rgba(255,255,255,0.12);border-radius:16px;padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;min-height:360px;">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Legend -->
+            <div style="display:flex;gap:18px;margin-top:20px;flex-wrap:wrap;font-size:12px;color:var(--clr-text-muted);">
+              <div style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#10b981;"></span> Available</div>
+              <div style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#06b6d4;"></span> Occupied / Seated</div>
+              <div style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;"></span> Reserved (Next 30m)</div>
+              <div style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#a855f7;"></span> VIP / Tasting Menu</div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Live Selected Table Inspector & Waitlist -->
+          <div style="display:flex;flex-direction:column;gap:24px;">
+
+            <!-- Selected Table Card -->
+            <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-xl);padding:24px;box-shadow:0 18px 48px rgba(0,0,0,0.35);" id="table-inspector-box">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--clr-border);padding-bottom:14px;margin-bottom:16px;">
+                <div>
+                  <span id="inspect-badge" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;background:rgba(6,182,212,0.15);color:#06b6d4;display:inline-block;margin-bottom:6px;">OCCUPIED</span>
+                  <h3 id="inspect-title" style="font-size:18px;font-weight:800;color:var(--clr-text);">Table 4 (Booth)</h3>
+                </div>
+                <span id="inspect-seats" style="font-size:12px;font-weight:700;color:var(--clr-text-muted);background:rgba(255,255,255,0.06);padding:4px 10px;border-radius:6px;">4 Seats</span>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;font-size:13px;">
+                <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--clr-border);padding-bottom:8px;">
+                  <span style="color:var(--clr-text-muted);">Guest Name:</span>
+                  <strong id="inspect-guest" style="color:var(--clr-text);">Chef Roberto Martinez</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--clr-border);padding-bottom:8px;">
+                  <span style="color:var(--clr-text-muted);">Seated Time:</span>
+                  <span id="inspect-time" style="color:var(--clr-text);font-weight:600;">7:15 PM (45m at table)</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--clr-border);padding-bottom:8px;">
+                  <span style="color:var(--clr-text-muted);">Assigned Server:</span>
+                  <span id="inspect-server" style="color:var(--clr-primary);font-weight:700;">Julian (Station 1)</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;border-bottom:1px dashed var(--clr-border);padding-bottom:8px;">
+                  <span style="color:var(--clr-text-muted);">Current Tab (POS):</span>
+                  <strong id="inspect-tab" style="color:#10b981;font-weight:800;">$218.50 (Entrees Out)</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;">
+                  <span style="color:var(--clr-text-muted);">VIP Notes:</span>
+                  <span id="inspect-notes" style="color:#f59e0b;font-weight:600;text-align:right;">Regular &middot; Prefers Pinot Noir</span>
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <button onclick="changeTableStatus('occupied')" class="btn btn-primary btn-sm" style="justify-content:center;">Seat Guests</button>
+                <button onclick="changeTableStatus('available')" class="btn btn-outline btn-sm" style="justify-content:center;">Clear &amp; Reset</button>
+              </div>
+            </div>
+
+            <!-- Live Waitlist Drawer -->
+            <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-xl);padding:24px;box-shadow:0 18px 48px rgba(0,0,0,0.35);">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3 style="font-size:15px;font-weight:800;color:var(--clr-text);">Active Waitlist (Walk-Ins)</h3>
+                <button onclick="addWalkIn()" class="btn btn-outline btn-sm" style="padding:4px 12px;font-size:12px;">+ Add Walk-In</button>
+              </div>
+
+              <div id="waitlist-items" style="display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.03);border:1px solid var(--clr-border);border-radius:10px;">
+                  <div>
+                    <div style="font-size:13px;font-weight:700;color:var(--clr-text);">1. David &amp; Chloe (2p)</div>
+                    <div style="font-size:11px;color:var(--clr-text-muted);">Waiting 12 min &middot; SMS Sent</div>
+                  </div>
+                  <button onclick="seatWaitlistParty(this, 'David & Chloe', 2)" class="btn btn-primary btn-sm" style="padding:4px 10px;font-size:11px;">Seat</button>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.03);border:1px solid var(--clr-border);border-radius:10px;">
+                  <div>
+                    <div style="font-size:13px;font-weight:700;color:var(--clr-text);">2. Harrison Group (4p)</div>
+                    <div style="font-size:11px;color:var(--clr-text-muted);">Waiting 8 min &middot; Bar Area</div>
+                  </div>
+                  <button onclick="seatWaitlistParty(this, 'Harrison Group', 4)" class="btn btn-primary btn-sm" style="padding:4px 10px;font-size:11px;">Seat</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Mock Table Data
+    const floorData = {
+      main: [
+        { id: 1, name: 'Table 1', seats: 2, status: 'available', guest: 'None (Walk-in Ready)', time: '-', server: 'Julian', tab: '$0.00', notes: 'Window view' },
+        { id: 2, name: 'Table 2', seats: 2, status: 'reserved',  guest: 'Sarah Jenkins', time: '8:00 PM', server: 'Julian', tab: '$0.00', notes: 'Anniversary' },
+        { id: 3, name: 'Table 3', seats: 4, status: 'occupied',  guest: 'Markus & Co.', time: '7:00 PM', server: 'Maya', tab: '$184.00', notes: 'VIP regular' },
+        { id: 4, name: 'Table 4', seats: 4, status: 'occupied',  guest: 'Chef Roberto', time: '7:15 PM', server: 'Maya', tab: '$218.50', notes: 'Regular · Prefers Pinot Noir' },
+        { id: 5, name: 'Table 5', seats: 6, status: 'vip',       guest: 'Senator Hayes', time: '7:30 PM', server: 'Julian', tab: '$390.00', notes: 'Tasting menu paired with wines' },
+        { id: 6, name: 'Table 6', seats: 6, status: 'available', guest: 'None', time: '-', server: 'Julian', tab: '$0.00', notes: 'Round table' },
+        { id: 7, name: 'Table 7', seats: 2, status: 'occupied',  guest: 'Emma Vance', time: '7:40 PM', server: 'Maya', tab: '$88.00', notes: 'Nut allergy' },
+        { id: 8, name: 'Table 8', seats: 4, status: 'reserved',  guest: 'Kenji Lopez', time: '8:15 PM', server: 'Maya', tab: '$0.00', notes: 'High top' },
+      ],
+      patio: [
+        { id: 101, name: 'Patio P1', seats: 4, status: 'occupied', guest: 'Liam Vance', time: '7:10 PM', server: 'Chris', tab: '$142.00', notes: 'Heater request' },
+        { id: 102, name: 'Patio P2', seats: 4, status: 'available', guest: 'None', time: '-', server: 'Chris', tab: '$0.00', notes: 'Under awning' },
+        { id: 103, name: 'Patio P3', seats: 2, status: 'occupied', guest: 'Zoe Kravitz', time: '7:25 PM', server: 'Chris', tab: '$95.00', notes: 'Corner booth' },
+        { id: 104, name: 'Patio P4', seats: 6, status: 'reserved', guest: 'Founders Dinner', time: '8:30 PM', server: 'Chris', tab: '$0.00', notes: '6 Course Pairing' }
+      ],
+      bar: [
+        { id: 201, name: 'Bar B1', seats: 2, status: 'occupied', guest: 'Walk-in', time: '7:05 PM', server: 'Leo', tab: '$45.00', notes: 'Cocktails' },
+        { id: 202, name: 'Bar B2', seats: 2, status: 'occupied', guest: 'Walk-in', time: '7:20 PM', server: 'Leo', tab: '$62.00', notes: 'Appetizers' },
+        { id: 203, name: 'Lounge L1', seats: 4, status: 'vip', guest: 'Techstars Group', time: '6:45 PM', server: 'Leo', tab: '$310.00', notes: 'Bottle Service' },
+        { id: 204, name: 'Lounge L2', seats: 4, status: 'available', guest: 'None', time: '-', server: 'Leo', tab: '$0.00', notes: 'Low seating' }
+      ]
+    };
+
+    let currentZone = 'main';
+    let selectedTable = floorData.main[3];
+
+    function renderFloor() {
+      const grid = document.getElementById('dashboard-floor-grid');
+      grid.innerHTML = '';
+
+      floorData[currentZone].forEach(tbl => {
+        const div = document.createElement('div');
+        div.className = `interactive-table status-${tbl.status} ${tbl.id === selectedTable.id ? 'selected' : ''}`;
+        div.innerHTML = `
+          <div class="table-badge-status"></div>
+          <div class="table-num">${tbl.name}</div>
+          <div class="table-seats">${tbl.seats} Seats</div>
+        `;
+        div.onclick = () => selectDashboardTable(tbl);
+        grid.appendChild(div);
+      });
+    }
+
+    function selectDashboardTable(tbl) {
+      selectedTable = tbl;
+      renderFloor();
+      
+      const badge = document.getElementById('inspect-badge');
+      badge.textContent = tbl.status.toUpperCase();
+      if (tbl.status === 'available') {
+        badge.style.background = 'rgba(16,185,129,0.15)'; badge.style.color = '#10b981';
+      } else if (tbl.status === 'occupied') {
+        badge.style.background = 'rgba(6,182,212,0.15)'; badge.style.color = '#06b6d4';
+      } else if (tbl.status === 'reserved') {
+        badge.style.background = 'rgba(245,158,11,0.15)'; badge.style.color = '#f59e0b';
+      } else {
+        badge.style.background = 'rgba(168,85,247,0.15)'; badge.style.color = '#a855f7';
+      }
+
+      document.getElementById('inspect-title').textContent = `${tbl.name}`;
+      document.getElementById('inspect-seats').textContent = `${tbl.seats} Seats`;
+      document.getElementById('inspect-guest').textContent = tbl.guest;
+      document.getElementById('inspect-time').textContent  = tbl.time;
+      document.getElementById('inspect-server').textContent = tbl.server;
+      document.getElementById('inspect-tab').textContent   = tbl.tab;
+      document.getElementById('inspect-notes').textContent = tbl.notes;
+    }
+
+    function changeTableStatus(newStatus) {
+      selectedTable.status = newStatus;
+      if (newStatus === 'available') {
+        selectedTable.guest = 'None (Walk-in Ready)';
+        selectedTable.tab = '$0.00';
+        selectedTable.time = '-';
+      } else if (newStatus === 'occupied') {
+        selectedTable.guest = 'Seated Guest';
+        selectedTable.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      }
+      selectDashboardTable(selectedTable);
+    }
+
+    function setFloorZone(zone) {
+      currentZone = zone;
+      document.querySelectorAll('.zone-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById(`ztab-${zone}`).classList.add('active');
+      selectedTable = floorData[zone][0];
+      selectDashboardTable(selectedTable);
+    }
+
+    function seatWaitlistParty(btn, name, partySize) {
+      const avail = floorData[currentZone].find(t => t.status === 'available');
+      if (avail) {
+        avail.status = 'occupied';
+        avail.guest = name;
+        avail.time = 'Just Seated';
+        btn.closest('div').remove();
+        selectDashboardTable(avail);
+      } else {
+        alert('All tables currently occupied in this zone! Clear a table or switch zones.');
+      }
+    }
+
+    function addWalkIn() {
+      const name = prompt('Guest party name:');
+      if (name) {
+        const box = document.getElementById('waitlist-items');
+        const div = document.createElement('div');
+        div.style = 'display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--clr-border);border-radius:10px;';
+        div.innerHTML = `
+          <div>
+            <div style="font-size:13.5px;font-weight:700;color:var(--clr-text);">${name} (Party of 2)</div>
+            <div style="font-size:11.5px;color:var(--clr-text-muted);">Just added &middot; Waiting at Bar</div>
+          </div>
+          <button onclick="seatWaitlistParty(this, '${name}', 2)" class="btn btn-primary btn-sm" style="padding:4px 10px;font-size:11.5px;">Seat Now</button>
+        `;
+        box.prepend(div);
+      }
+    }
+
+    renderFloor();
+    selectDashboardTable(selectedTable);
+  </script>
+  <script src="components.js"></script>
+</body>
+</html>
