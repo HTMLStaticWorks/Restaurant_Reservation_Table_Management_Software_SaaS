@@ -91,9 +91,11 @@
           <button id="dash-sidebar-toggle" class="btn btn-outline btn-sm" style="padding:8px 12px;" aria-label="Toggle menu">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
-          <div>
-            <div class="dash-topbar-title">Dinner Service Command Center</div>
-            <div style="font-size:12px;color:var(--clr-text-muted);">Bistro Luna &middot; Main Dining &middot; Friday Night Peak</div>
+          <div class="dash-topbar-brand">
+            <div style="width:28px;height:28px;background:linear-gradient(135deg,#14b8a6,#0891b2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--clr-text);">TableFlow</span>
           </div>
         </div>
 
@@ -110,6 +112,20 @@
 
       <!-- CONTENT BODY -->
       <main class="dash-content-body">
+
+        <!-- PAGE HEADING -->
+        <div class="dash-page-heading" id="dash-page-heading">
+          <div>
+            <h1 class="dash-page-title" id="dash-page-title">Dinner Service Command Center</h1>
+            <p class="dash-page-subtitle">Bistro Luna &middot; Main Dining &middot; Friday Night Peak</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#10b981;background:rgba(16,185,129,0.12);padding:5px 12px;border-radius:50px;border:1px solid rgba(16,185,129,0.2);">
+              <span style="width:7px;height:7px;border-radius:50%;background:#10b981;display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;"></span>
+              Live
+            </span>
+          </div>
+        </div>
 
         <!-- TAB: FLOOR & TABLES -->
         <div id="tab-floor" class="dash-tab-content" style="display:block; animation: fadeIn 0.3s ease;">
@@ -328,10 +344,12 @@
       document.querySelectorAll('.dash-tab-content').forEach(el => el.style.display = 'none');
       document.getElementById(tabId).style.display = 'block';
 
-      // Set title bar text dynamically
-      let titleText = e.currentTarget.textContent.trim();
-      titleText = titleText.replace('Live', '').trim();
-      document.querySelector('.dash-topbar-title').textContent = titleText === 'Floor & Tables' ? 'Dinner Service Command Center' : titleText;
+      // Update page heading dynamically
+      const pageTitle = document.getElementById('dash-page-title');
+      if (pageTitle) {
+        let titleText = e.currentTarget.textContent.trim().replace('Live', '').trim();
+        pageTitle.textContent = titleText === 'Floor & Tables' ? 'Dinner Service Command Center' : titleText;
+      }
 
       // Auto-close sidebar on mobile after clicking
       if(window.innerWidth <= 1024) {
