@@ -23,8 +23,8 @@ const isStandaloneAppPage = PAGE.includes('dashboard') || PAGE.includes('signin'
     { href: 'features.html',  id: 'nav-features',  label: 'Features'  },
     { href: 'pricing.html',   id: 'nav-pricing',   label: 'Pricing'   },
     { href: 'blog.html',      id: 'nav-blog',      label: 'Blog'      },
-    { href: 'contact.html',   id: 'nav-contact',   label: 'Contact'   },
     { href: 'demo.html',      id: 'nav-demo-page', label: 'Demo'      },
+    { href: 'contact.html',   id: 'nav-contact',   label: 'Contact'   },
     { href: 'dashboard.html', id: 'nav-dashboard', label: 'Dashboard' }
   ];
 
@@ -67,13 +67,17 @@ const isStandaloneAppPage = PAGE.includes('dashboard') || PAGE.includes('signin'
           ${links.filter(l => l.id !== 'nav-home').map(l => `<li><a href="${l.href}" id="${l.id}" class="${activeFile === l.href ? 'nav-active' : ''}">${l.label}</a></li>`).join('')}
         </ul>
         <div class="nav-cta">
-        <button id="theme-toggle" class="btn" aria-label="Toggle Theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-        <button id="rtl-toggle" class="btn" aria-label="Toggle RTL direction" title="Toggle RTL">
-          RTL
-        </button>
-          <a href="signin.html" class="btn btn-ghost" id="nav-login">Sign In</a>
+          <div class="nav-cta-toggles">
+            <button id="theme-toggle" class="btn" aria-label="Toggle Theme">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <button id="rtl-toggle" class="btn" aria-label="Toggle RTL direction" title="Toggle RTL">
+              RTL
+            </button>
+          </div>
+          <div class="nav-cta-auth">
+            <a href="signin.html" class="btn btn-primary btn-sm" id="nav-login">Sign In</a>
+          </div>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <span></span><span></span><span></span>

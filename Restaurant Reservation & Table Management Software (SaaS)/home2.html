@@ -53,19 +53,23 @@
         <li><a href="features.html" id="nav-features">Features</a></li>
         <li><a href="pricing.html" id="nav-pricing">Pricing</a></li>
         <li><a href="blog.html" id="nav-blog">Blog</a></li>
-        <li><a href="contact.html" id="nav-contact">Contact</a></li>
         <li><a href="demo.html" id="nav-demo-link">Demo</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact</a></li>
         <li><a href="dashboard.html" id="nav-dashboard">Dashboard</a></li>
       </ul>
 
       <div class="nav-cta">
-        <button id="theme-toggle" class="btn" aria-label="Toggle Theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-        <button id="rtl-toggle" class="btn" aria-label="Toggle RTL direction" title="Toggle RTL">
-          RTL
-        </button>
-        <a href="signin.html" class="btn btn-ghost" id="nav-login">Sign In</a>
+        <div class="nav-cta-toggles">
+          <button id="theme-toggle" class="btn" aria-label="Toggle Theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+          <button id="rtl-toggle" class="btn" aria-label="Toggle RTL direction" title="Toggle RTL">
+            RTL
+          </button>
+        </div>
+        <div class="nav-cta-auth">
+          <a href="signin.html" class="btn btn-primary btn-sm" id="nav-login">Sign In</a>
+        </div>
       </div>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">

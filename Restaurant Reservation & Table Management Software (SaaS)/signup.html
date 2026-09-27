@@ -16,16 +16,6 @@
 </head>
 <body>
 
-  <!-- Theme & RTL Controls at top right -->
-  <div style="position:fixed;top:24px;right:28px;z-index:100;display:flex;align-items:center;gap:12px;">
-    <button id="theme-toggle" class="btn" aria-label="Toggle Theme" title="Toggle Theme" style="width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--clr-surface);border:1px solid var(--clr-border);cursor:pointer;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-    </button>
-    <button id="rtl-toggle" class="btn" aria-label="Toggle RTL direction" title="Toggle RTL" style="width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--clr-surface);border:1px solid var(--clr-border);cursor:pointer;font-size:12px;font-weight:700;">
-      RTL
-    </button>
-  </div>
-
   <div class="auth-page" style="padding-top:40px;padding-bottom:40px;">
     <div class="auth-bg"></div>
 
@@ -33,9 +23,19 @@
     <div style="position:absolute;top:20%;left:5%;width:300px;height:300px;background:radial-gradient(ellipse,rgba(20,184,166,0.06),transparent 70%);pointer-events:none;"></div>
     <div style="position:absolute;bottom:10%;right:5%;width:400px;height:400px;background:radial-gradient(ellipse,rgba(8,145,178,0.06),transparent 70%);pointer-events:none;"></div>
 
-    <div class="auth-card" style="max-width:500px;">
-      <div class="auth-logo" style="margin-bottom:20px;">
-        <a href="index.html" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;transition:transform 0.2s ease;">
+    <!-- Theme & RTL Controls (fixed to viewport top-right) -->
+    <div style="position:fixed;top:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:8px;">
+      <button id="theme-toggle" class="btn" aria-label="Toggle Theme" title="Toggle Theme" style="width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--clr-surface);border:1px solid var(--clr-border);cursor:pointer;padding:0;box-shadow:0 2px 12px rgba(0,0,0,0.3);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="btn" aria-label="Toggle RTL direction" title="Toggle RTL" style="width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--clr-surface);border:1px solid var(--clr-border);cursor:pointer;font-size:11px;font-weight:700;padding:0;box-shadow:0 2px 12px rgba(0,0,0,0.3);">
+        RTL
+      </button>
+    </div>
+
+    <div class="auth-card" style="max-width:500px;position:relative;">
+      <div class="auth-logo" style="margin-bottom:20px;text-align:center;">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;transition:transform 0.2s ease;justify-content:center;">
           <div style="width:44px;height:44px;background:linear-gradient(135deg,#14b8a6,#0891b2);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(20,184,166,0.35);">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
           </div>
@@ -91,9 +91,9 @@
 
         <div class="form-group">
           <label class="form-label" for="su-password">Create password</label>
-          <div style="position:relative;">
+          <div class="password-input-wrap">
             <input type="password" id="su-password" class="form-input" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password" />
-            <button type="button" onclick="togglePwd('su-password',this)" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#64748b;display:flex;align-items:center;" aria-label="Show password">
+            <button type="button" class="pwd-toggle-btn" onclick="togglePwd('su-password',this)" aria-label="Show password">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
           </div>
@@ -105,10 +105,6 @@
             <div style="flex:1;height:3px;border-radius:4px;background:#1e293b;" class="str-bar"></div>
           </div>
           <div id="strength-label" style="font-size:11px;color:#64748b;margin-top:4px;"></div>
-          <!-- Forgot password below password field -->
-          <div style="display:flex;justify-content:flex-end;margin-top:8px;">
-            <a href="#" onclick="alert('Password reset link sent to your email.');return false;" class="form-link" style="font-size:13px;color:var(--clr-primary);font-weight:600;">Forgot password?</a>
-          </div>
         </div>
 
         <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;">
@@ -148,9 +144,19 @@
   </div>
 
   <script>
-    function togglePwd(id) {
+    function togglePwd(id, btn) {
       const input = document.getElementById(id);
-      input.type = input.type === 'password' ? 'text' : 'password';
+      const isPwd = input.type === 'password';
+      input.type = isPwd ? 'text' : 'password';
+      if (btn) {
+        if (isPwd) {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>';
+          btn.setAttribute('aria-label', 'Hide password');
+        } else {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+          btn.setAttribute('aria-label', 'Show password');
+        }
+      }
     }
 
     // Password strength meter
