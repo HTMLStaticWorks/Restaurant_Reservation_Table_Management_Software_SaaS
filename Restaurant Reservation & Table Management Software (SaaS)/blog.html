@@ -17,8 +17,8 @@
 <body>
 
   <!-- PAGE HERO -->
-  <section class="page-hero" style="padding-bottom:60px;">
-    <div class="page-hero-bg"></div>
+  <section class="page-hero">
+    <div class="page-hero-bg hero-bg-blog"></div>
     <div class="page-hero-grid"></div>
     <div class="container page-hero-content reveal">
       <div class="section-eyebrow">The TableFlow Blog</div>
@@ -168,17 +168,47 @@
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section class="content-section content-section-alt" style="padding:80px 0;" id="blog-newsletter">
-    <div class="container" style="max-width:560px;text-align:center;margin:0 auto;">
-      <div class="section-eyebrow reveal" style="justify-content:center;">Newsletter</div>
-      <h2 class="section-heading reveal" style="margin-bottom:12px;">Get Insights <span class="gradient-text">Delivered Weekly</span></h2>
-      <form onsubmit="subscribeNewsletter(event)" style="display:flex;align-items:center;justify-content:center;gap:10px;max-width:460px;margin:0 auto;" id="newsletter-form">
-        <input type="email" id="newsletter-email" class="form-input" placeholder="Your email address" required style="flex:1;height:48px;border-radius:50px;padding:0 20px;font-size:14px;box-sizing:border-box;" />
-        <button type="submit" class="btn btn-primary" style="height:48px;padding:0 24px;border-radius:50px;font-weight:700;font-size:14px;flex-shrink:0;box-sizing:border-box;white-space:nowrap;">Subscribe</button>
-      </form>
-      <p id="newsletter-msg" style="display:none;margin-top:16px;font-size:14px;color:#10b981;font-weight:600;">&#10003; You're subscribed! Check your inbox.</p>
-      <p style="font-size:12px;color:#64748b;margin-top:16px;">No spam. Unsubscribe anytime.</p>
+  <!-- NEWSLETTER (ENHANCED EDITORIAL SHOWCASE) -->
+  <section class="content-section content-section-alt" style="padding:70px 0 100px;" id="blog-newsletter">
+    <div class="container">
+      <div class="newsletter-editorial-grid reveal">
+        <!-- Left Column -->
+        <div>
+          <div class="section-eyebrow">Hospitality Insider</div>
+          <h2 class="section-heading" style="font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:12px;">Get Restaurant Strategy <span class="gradient-text">Delivered Weekly</span></h2>
+          <p class="section-subtext" style="margin-bottom:24px;">Join 14,000+ general managers, executive chefs, and operators receiving our tactical Friday operational blueprints.</p>
+          
+          <form onsubmit="subscribeNewsletter(event)" style="display:flex;align-items:center;gap:10px;max-width:480px;margin-bottom:16px;" id="newsletter-form">
+            <input type="email" id="newsletter-email" class="form-input" placeholder="Enter your work email..." required style="flex:1;height:48px;border-radius:50px;padding:0 20px;font-size:14px;box-sizing:border-box;" />
+            <button type="submit" class="btn btn-primary" style="height:48px;padding:0 24px;border-radius:50px;font-weight:700;font-size:14px;flex-shrink:0;box-sizing:border-box;white-space:nowrap;">Subscribe Free</button>
+          </form>
+          <p id="newsletter-msg" style="display:none;margin-top:10px;font-size:14px;color:#10b981;font-weight:600;">&#10003; You're subscribed! Check your inbox for this week's issue.</p>
+
+          <div style="display:flex;gap:18px;font-size:12.5px;color:var(--clr-text-muted);flex-wrap:wrap;margin-top:14px;">
+            <span>✓ Dynamic table pricing formulas</span>
+            <span>✓ Staff scheduling blueprints</span>
+            <span>✓ Zero spam, cancel anytime</span>
+          </div>
+        </div>
+
+        <!-- Right Column Spotlight -->
+        <div class="trending-spotlight-card">
+          <img src="blog_metrics.jpg" alt="Dynamic table pacing metrics case study" class="trending-spotlight-img" />
+          <div style="display:inline-block;font-size:11px;font-weight:800;color:var(--clr-primary);background:rgba(20,184,166,0.15);padding:4px 10px;border-radius:50px;margin-bottom:12px;">
+            Trending Operational Guide
+          </div>
+          <h4 style="font-size:17px;font-weight:800;color:var(--clr-text);line-height:1.4;margin-bottom:10px;">
+            How Dynamic Table Pacing Boosted Covers by 22% on Friday Service
+          </h4>
+          <p style="font-size:13px;color:var(--clr-text-muted);line-height:1.6;margin-bottom:16px;">
+            Real-world case study analyzing how 15-minute staggered turn intervals eliminated front door queues and smoothed kitchen ticket fires.
+          </p>
+          <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--clr-border);padding-top:12px;">
+            <span style="font-size:12px;color:var(--clr-text-muted);">6 min read &middot; By Marcus Rivera</span>
+            <a href="#feat-reservations" style="font-size:12.5px;font-weight:700;color:var(--clr-primary);">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

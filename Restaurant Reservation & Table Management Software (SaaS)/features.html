@@ -16,11 +16,9 @@
 </head>
 <body>
 
-  <!-- Navbar injected by components.js -->
-
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="page-hero-bg"></div>
+    <div class="page-hero-bg hero-bg-features"></div>
     <div class="page-hero-grid"></div>
     <div class="container page-hero-content reveal">
       <div class="section-eyebrow">Platform Features</div>
@@ -117,14 +115,71 @@
     </div>
   </section>
 
-  <!-- MINI CTA -->
-  <section class="content-section" style="padding:80px 0;">
-    <div class="container" style="text-align:center;">
-      <h2 class="section-heading reveal" style="margin-bottom:16px;">Ready to See It in Action?</h2>
-      <p class="section-subtext reveal" style="margin:0 auto 32px;">Start your 14-day free trial. No credit card required.</p>
-      <div class="hero-ctas" style="justify-content:center;" id="features-cta">
-        <a href="signup.html" class="btn btn-primary btn-lg">Start Free Trial</a>
-        <a href="pricing.html" class="btn btn-outline btn-lg">View Pricing <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <!-- ENHANCED FINAL SECTION: SPLIT PLATFORM CHECKLIST CTA -->
+  <section class="content-section" style="padding:60px 0 100px;">
+    <div class="container">
+      <div class="features-cta-split reveal">
+        <!-- Left Column -->
+        <div>
+          <div class="section-eyebrow">Ready to Upgrade?</div>
+          <h2 class="section-heading" style="font-size:clamp(1.8rem, 3.2vw, 2.4rem);margin-bottom:16px;">
+            Modernize Your Front-of-House in <span class="gradient-text">Under 24 Hours</span>
+          </h2>
+          <p class="section-subtext" style="margin-bottom:28px;">
+            Say goodbye to clunky software and predatory per-cover fees. Join over 2,400 premier restaurants running on TableFlow.
+          </p>
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+            <a href="signup.html" class="btn btn-primary btn-lg">Start Free 14-Day Trial</a>
+            <a href="demo.html" class="btn btn-outline btn-lg">Schedule Live Walkthrough</a>
+          </div>
+          <div style="font-size:12.5px;color:var(--clr-text-muted);margin-top:16px;">
+            ✓ No credit card required &middot; ✓ Free floor plan onboarding &middot; ✓ Cancel anytime
+          </div>
+
+          <!-- Embedded Visual Status Preview -->
+          <div style="margin-top:24px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 12px 30px rgba(0,0,0,0.35);position:relative;max-width:440px;">
+            <img src="table_management_dashboard.jpg" alt="TableFlow live floor status" style="width:100%;height:130px;object-fit:cover;display:block;" />
+            <div style="position:absolute;bottom:8px;left:10px;background:rgba(13,17,23,0.88);backdrop-filter:blur(6px);padding:5px 12px;border-radius:50px;font-size:11.5px;font-weight:700;color:#10b981;border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;gap:6px;">
+              <span style="width:6px;height:6px;border-radius:50%;background:#10b981;display:inline-block;"></span>
+              <span>Toast POS Sync &middot; 24 Tables Connected</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column Checklist -->
+        <div class="checklist-grid">
+          <div class="checklist-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            <div>
+              <strong>Instant Live Floor &amp; Seating Synchronization</strong>
+              <div style="font-size:12px;color:var(--clr-text-muted);">Real-time status updates across all iPad &amp; web terminals</div>
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            <div>
+              <strong>Zero Cover Fees on Unlimited Diners</strong>
+              <div style="font-size:12px;color:var(--clr-text-muted);">Keep 100% of direct website and walk-in revenues</div>
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            <div>
+              <strong>Automated Two-Way SMS Confirmations</strong>
+              <div style="font-size:12px;color:var(--clr-text-muted);">Cut dining no-shows by over 40% with 1-click text replies</div>
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            <div>
+              <strong>Native Toast, Square &amp; Clover POS Sync</strong>
+              <div style="font-size:12px;color:var(--clr-text-muted);">Live check totals, open tabs, and dining course progression</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
