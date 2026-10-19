@@ -117,7 +117,7 @@
 
         <!-- WELCOMING INTRODUCTION BANNER -->
         <div class="dash-welcome-banner reveal">
-          <div style="flex:1;min-width:320px;">
+          <div class="dash-welcome-text-col" style="flex:1;min-width:0;width:100%;">
             <div class="dash-welcome-title">
               <span>Welcome back, Marcus! 🍷</span>
               <span class="dash-welcome-badge">
@@ -209,7 +209,7 @@
           </div>
 
           <!-- INTERACTIVE FLOOR SIMULATOR -->
-          <div class="floor-sim-container" style="display:grid;grid-template-columns:1.8fr 1fr;gap:24px;margin-bottom:28px;">
+          <div class="floor-sim-container">
             <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-xl);padding:24px;display:flex;flex-direction:column;">
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
                 <div style="display:flex;gap:8px;" id="zone-tabs">
@@ -226,7 +226,7 @@
               </div>
 
               <!-- Floor Layout Grid -->
-              <div class="interactive-floor-grid" id="dashboard-floor-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;flex-grow:1;min-height:360px;padding:20px;background:var(--clr-surface-2);border-radius:var(--radius-lg);border:1px dashed var(--clr-border);">
+              <div class="interactive-floor-grid" id="dashboard-floor-grid">
                 <!-- Populated via JS -->
               </div>
             </div>
@@ -671,7 +671,7 @@
             </div>
 
             <!-- Financial Metric Cards -->
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px;" id="sales-kpi-grid">
+            <div id="sales-kpi-grid" class="sales-kpi-grid">
               <div style="background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:18px;">
                 <div style="font-size:12px;color:var(--clr-text-muted);font-weight:700;text-transform:uppercase;">Gross Revenue</div>
                 <div style="font-size:24px;font-weight:900;color:#10b981;font-family:'Plus Jakarta Sans',sans-serif;margin-top:4px;">$8,420.50</div>
@@ -862,7 +862,7 @@
             <h3 style="font-size:18px;font-weight:800;color:var(--clr-text);margin-bottom:6px;">Restaurant Configuration</h3>
             <p style="font-size:13.5px;color:var(--clr-text-muted);margin-bottom:28px;">Manage pacing thresholds, automated SMS rules, and connected POS integrations.</p>
 
-            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px;">
+            <div class="dash-settings-columns-grid">
               <!-- Venue Details -->
               <div style="background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:22px;">
                 <h4 style="font-size:15px;font-weight:800;color:var(--clr-text);margin-bottom:16px;">Venue Profile &amp; Capacity</h4>
@@ -916,7 +916,7 @@
             <!-- Connected Integrations -->
             <div style="margin-top:24px;background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:22px;">
               <h4 style="font-size:15px;font-weight:800;color:var(--clr-text);margin-bottom:14px;">Active Cloud Integrations</h4>
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+              <div class="dash-settings-integrations-grid">
                 <div style="padding:14px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:space-between;">
                   <div>
                     <strong>Toast POS</strong>
