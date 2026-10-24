@@ -5698,6 +5698,12 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
 
+.crm-card > .btn,
+.crm-card > button {
+  margin-top: auto;
+  width: 100%;
+}
+
 /* Sales & POS Layout */
 .sales-overview-grid {
   display: grid;
@@ -5753,6 +5759,18 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
   gap: 12px;
+  transition: all 0.25s ease;
+}
+
+.staff-section-card:hover {
+  border-color: rgba(20,184,166,0.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.staff-section-card > .btn,
+.staff-section-card > button {
+  margin-top: auto;
+  width: 100%;
 }
 
 /* Light Theme Overrides for New Components */
